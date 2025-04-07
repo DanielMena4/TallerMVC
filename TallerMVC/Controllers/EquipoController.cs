@@ -15,6 +15,9 @@ namespace TallerMVC.Controllers
         {
             EquipoRepository equipoRepository = new EquipoRepository();
             var equipos = equipoRepository.DevuelveListdoEquipos();
+
+            equipos = equipos.OrderByDescending(item => item.PartidosGanados);
+            
             return View(equipos);
         }
 

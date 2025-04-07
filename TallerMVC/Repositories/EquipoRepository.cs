@@ -18,7 +18,17 @@ namespace TallerMVC.Repositories
                 PartidosEmpatados = 0,
                 PartidosPerdidos = 0,
             };
+            Equipo barcelona = new Equipo
+            {
+                Id = 2,
+                Nombre = "Barcelona",
+                PartidosJugados = 10,
+                PartidosGanados = 8,
+                PartidosEmpatados = 0,
+                PartidosPerdidos = 2,
+            };
             equipos.Add(ldu);
+            equipos.Add(barcelona);
             return equipos;
         }
     }
