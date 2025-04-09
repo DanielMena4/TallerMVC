@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 using TallerMVC.Models;
 using TallerMVC.Repositories;
 
@@ -7,19 +8,45 @@ namespace TallerMVC.Controllers
 {
     public class EquipoController : Controller
     {
+        EquipoRepository _repository;
         public ActionResult View()
         {
             return View();
         }
+        public EquipoController()
+        {
+            _repository = new EquipoRepository();
+        }
         public ActionResult List()
         {
-            EquipoRepository equipoRepository = new EquipoRepository();
-            var equipos = equipoRepository.DevuelveListdoEquipos();
+            var equipos = _repository.DevuelveListdoEquipos();
 
             equipos = equipos.OrderByDescending(item => item.PartidosGanados);
             
             return View(equipos);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public ActionResult Edit(int Id)
+        {
+            Equipo equipo = _repository.DevuelveEquipoPorId(Id);  
+            return View(equipo);
+        }
 
+        [HttpPost]
+        public ActionResult Edit(int Id, Equipo equipo)
+        {
+            try
+            {
+                _repository.ActualizarEquipo(Id, equipo);
+                return RedirectToAction(nameof(List));
+            }
+            catch 
+            {
+                return View();
+            }
+        }
     }
 }

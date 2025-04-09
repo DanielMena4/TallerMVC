@@ -5,6 +5,11 @@ namespace TallerMVC.Repositories
 {
     public class EquipoRepository
     {
+        public IEnumerable<Equipo> equipos;
+        public EquipoRepository() 
+        {
+            equipos = DevuelveListdoEquipos();
+        }
         public IEnumerable<Equipo> DevuelveListdoEquipos()
         {
 
@@ -30,6 +35,15 @@ namespace TallerMVC.Repositories
             equipos.Add(ldu);
             equipos.Add(barcelona);
             return equipos;
+        }
+    public Equipo DevuelveEquipoPorId(int Id) {
+            
+            Equipo equipo = equipos.First(item => item.Id == Id);
+            return equipo;
+        }
+        public bool ActualizarEquipo(int Id, Equipo equipo) {
+
+            return true;
         }
     }
 }
