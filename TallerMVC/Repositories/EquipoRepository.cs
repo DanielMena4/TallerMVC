@@ -6,7 +6,7 @@ namespace TallerMVC.Repositories
     public class EquipoRepository
     {
         public IEnumerable<Equipo> equipos;
-        public EquipoRepository() 
+        public EquipoRepository()
         {
             equipos = DevuelveListdoEquipos();
         }
@@ -36,13 +36,20 @@ namespace TallerMVC.Repositories
             equipos.Add(barcelona);
             return equipos;
         }
-    public Equipo DevuelveEquipoPorId(int Id) {
-            
+        public Equipo DevuelveEquipoPorId(int Id)
+        {
             Equipo equipo = equipos.First(item => item.Id == Id);
             return equipo;
         }
-        public bool ActualizarEquipo(int Id, Equipo equipo) {
-
+        public bool ActualizarEquipo(int Id, Equipo equipo)
+        {
+            Equipo equipo1 = equipos.First(item => item.Id == Id);
+            equipo1.Nombre = equipo.Nombre;
+            equipo1.PartidosJugados = equipo.PartidosJugados;
+            equipo1.PartidosGanados = equipo.PartidosGanados;
+            equipo1.PartidosEmpatados = equipo.PartidosEmpatados;   
+            equipo1.PartidosPerdidos = equipo.PartidosPerdidos;
+            equipo1.Puntos = (equipo.PartidosGanados * 3) + (equipo.PartidosEmpatados); 
             return true;
         }
     }

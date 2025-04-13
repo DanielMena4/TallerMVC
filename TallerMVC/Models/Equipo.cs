@@ -19,6 +19,8 @@ namespace TallerMVC.Models
         public int PartidosEmpatados { get; set; }
         [Range(0, 100)]
         public int PartidosPerdidos { get; set; }
+        [Range(0, 300)]
+        public int Puntos { get; set; } = 0;
 
     }
 }

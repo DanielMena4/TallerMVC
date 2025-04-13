@@ -20,7 +20,10 @@ namespace TallerMVC.Controllers
         public ActionResult List()
         {
             var equipos = _repository.DevuelveListdoEquipos();
-
+            foreach (var item in equipos)
+            {
+                item.Puntos = (item.PartidosGanados * 3) + (item.PartidosEmpatados);
+            }
             equipos = equipos.OrderByDescending(item => item.PartidosGanados);
             
             return View(equipos);
@@ -28,11 +31,6 @@ namespace TallerMVC.Controllers
         public ActionResult Create()
         {
             return View();
-        }
-        public ActionResult Edit(int Id)
-        {
-            Equipo equipo = _repository.DevuelveEquipoPorId(Id);  
-            return View(equipo);
         }
 
         [HttpPost]
@@ -47,6 +45,11 @@ namespace TallerMVC.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult Edit(int Id)
+        {
+            Equipo equipo = _repository.DevuelveEquipoPorId(Id);
+            return View(equipo);
         }
     }
 }

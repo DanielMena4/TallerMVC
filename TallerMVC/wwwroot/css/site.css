@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -19,4 +19,31 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: 'Arvo';
+}
+
+.imagen-carousel {
+    height: 400px; 
+    object-fit: cover;
+}
+header {
+    background: #ffc107BF;
+}
+
+.navbar {
+    background: #ffc107BF;
+    border-bottom: none;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black; 
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: black; 
+}
+footer {
+    background: #0d6efd;
+    color: black;
+    text-align: center;
 }

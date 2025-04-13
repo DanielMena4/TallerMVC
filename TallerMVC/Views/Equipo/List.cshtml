@@ -4,31 +4,34 @@
     ViewData["Title"] = "List";
 }
 
-<h1>List</h1>
+<h1>Tabla de posiciones</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @Html.ActionLink("Create", "Create", new { /* id=item.PrimaryKey */ })
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                Pos.
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PartidosJugados)
+                Partidos Jugados
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PartidosGanados)
+                Partidos Ganados
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PartidosEmpatados)
+                Partidos Empatados
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PartidosPerdidos)
+                Partidos Perdidos
+            </th>
+            <th>
+                Puntos
             </th>
             <th></th>
         </tr>
@@ -55,9 +58,11 @@
                 @Html.DisplayFor(modelItem => item.PartidosPerdidos)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id}) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.Puntos)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id}, new { @class = "btn btn-primary"}) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning"})
             </td>
         </tr>
 }
