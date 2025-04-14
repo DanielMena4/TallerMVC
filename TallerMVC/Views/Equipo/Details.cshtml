@@ -1,0 +1,53 @@
+﻿@model TallerMVC.Models.Equipo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <img src="@Url.Content(Model.ImagenRuta)" width="60" class="img-thumbnail" />
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Partidos Jugados
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PartidosJugados)
+        </dd>
+        <dt class = "col-sm-2">
+            Partidos Ganados
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PartidosGanados)
+        </dd>
+        <dt class = "col-sm-2">
+            Partidos Empatados
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PartidosEmpatados)
+        </dd>
+        <dt class = "col-sm-2">
+            Partidos Perdidos
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PartidosPerdidos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Puntos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Puntos)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="List" class="btn btn-secondary">Volver</a>
+</div>

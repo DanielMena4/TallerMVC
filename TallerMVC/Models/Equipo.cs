@@ -22,5 +22,7 @@ namespace TallerMVC.Models
         [Range(0, 300)]
         public int Puntos { get; set; } = 0;
 
+        [DisplayName("Logo del equipo")]
+        public string? ImagenRuta { get; set; }
     }
 }

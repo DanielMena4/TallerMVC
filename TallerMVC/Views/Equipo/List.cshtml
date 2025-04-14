@@ -7,15 +7,11 @@
 <h1>Tabla de posiciones</h1>
 
 <p>
-    @Html.ActionLink("Create", "Create", new { /* id=item.PrimaryKey */ })
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                Pos.
-            </th>
-            <th>
+			<th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
@@ -39,9 +35,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>

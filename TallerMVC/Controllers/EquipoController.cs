@@ -24,7 +24,7 @@ namespace TallerMVC.Controllers
             {
                 item.Puntos = (item.PartidosGanados * 3) + (item.PartidosEmpatados);
             }
-            equipos = equipos.OrderByDescending(item => item.PartidosGanados);
+            equipos = equipos.OrderByDescending(item => item.Puntos);
             
             return View(equipos);
         }
@@ -49,6 +49,12 @@ namespace TallerMVC.Controllers
         public ActionResult Edit(int Id)
         {
             Equipo equipo = _repository.DevuelveEquipoPorId(Id);
+            return View(equipo);
+        }
+        public ActionResult Details(int Id)
+        {
+            Equipo equipo = _repository.DevuelveEquipoPorId(Id);
+            equipo.Puntos = (equipo.PartidosGanados * 3) + (equipo.PartidosEmpatados);
             return View(equipo);
         }
     }
